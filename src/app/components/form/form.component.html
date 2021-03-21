@@ -1,0 +1,18 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <app-first-name-input [formControlName]="'firstName'"></app-first-name-input>
+  </div>
+  <div>
+    <app-last-name-input [formControlName]="'lastName'"></app-last-name-input>
+  </div>
+  <div>
+    <app-email-input [formControlName]="'email'"></app-email-input>
+  </div>
+  <div>
+    <app-password-input [formControlName]="'password'"></app-password-input>
+  </div>
+  <div>
+    <app-submit-button></app-submit-button>
+  </div>
+</form>

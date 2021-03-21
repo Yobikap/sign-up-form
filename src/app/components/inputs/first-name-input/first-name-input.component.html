@@ -1,0 +1,5 @@
+<label>
+  First Name
+  <input name="firstname" type="text" [formControl]="control" />
+  <span *ngIf="control.parent!.invalid && control.touched && control.invalid">{{control.errors?.message}}</span>
+</label>

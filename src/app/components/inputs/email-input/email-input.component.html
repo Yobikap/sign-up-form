@@ -1,0 +1,5 @@
+<label>
+  E-mail address
+  <input name="email" type="email" [formControl]="control" [email]="true" />
+  <span *ngIf="control.parent!.invalid && control.touched && control.invalid">{{control.errors?.message}}</span>
+</label>
