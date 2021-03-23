@@ -1,1 +1,42 @@
+@import './scss/globals/input-field.scss';
+
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif
+}
+
+.invalid {
+  border: solid 1px red;
+}
+
+.valid {
+  border: solid 1px green;
+}
+
+.content {
+  max-width: 600px;
+  margin: auto;
+  background: #EEE;
+  padding: $margin;
+  border-radius: 20px;
+}
+
+input {
+  width: $input-width;
+  padding: $input-padding;
+  display: block;
+  margin-bottom: $margin;
+}
+
+.error-container {
+  margin-top: -$margin;
+  margin-bottom: $margin;
+  color: red;
+  font-size: 12px;
+}
+
+.success {
+  color: green;
+  margin-left: $margin;
+}
+

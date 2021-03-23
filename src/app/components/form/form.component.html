@@ -1,18 +1,8 @@
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-
-  <div>
+<form [formGroup]="signUpForm" (ngSubmit)="signUpForm.valid && onSubmit()">
     <app-first-name-input [formControlName]="'firstName'"></app-first-name-input>
-  </div>
-  <div>
     <app-last-name-input [formControlName]="'lastName'"></app-last-name-input>
-  </div>
-  <div>
     <app-email-input [formControlName]="'email'"></app-email-input>
-  </div>
-  <div>
     <app-password-input [formControlName]="'password'"></app-password-input>
-  </div>
-  <div>
-    <app-submit-button></app-submit-button>
-  </div>
+    <app-submit-button [formGroup]="signUpForm"></app-submit-button>
+    <span *ngIf="formSubmitted" class="success">Signed-up successfully</span>
 </form>

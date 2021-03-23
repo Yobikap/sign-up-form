@@ -12,6 +12,7 @@ import { EmailInputComponent } from './components/inputs/email-input/email-input
 import { FirstNameInputComponent } from './components/inputs/first-name-input/first-name-input.component';
 import { LastNameInputComponent } from './components/inputs/last-name-input/last-name-input.component';
 import { ControlValueAccessorConnector } from './components/control-value-accessor-connector';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ControlValueAccessorConnector } from './components/control-value-access
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

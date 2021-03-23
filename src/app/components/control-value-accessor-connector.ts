@@ -47,5 +47,4 @@ export class ControlValueAccessorConnector implements ControlValueAccessor {
       this.formControlDirective.valueAccessor.registerOnTouched(fn);
     }
   }
-
 }

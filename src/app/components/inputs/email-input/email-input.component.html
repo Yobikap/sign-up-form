@@ -1,5 +1,11 @@
 <label>
-  E-mail address
-  <input name="email" type="email" [formControl]="control" [email]="true" />
-  <span *ngIf="control.parent!.invalid && control.touched && control.invalid">{{control.errors?.message}}</span>
+  E-mail address <span *ngIf="control"></span>
+    <input name="email" type="email" [formControl]="control" [email]="true" [class.valid]="control.valid &&
+        (control.dirty || control.touched)"
+         [class.invalid]="control.invalid &&
+        (control.dirty || control.touched)" />
 </label>
+<div class="error-container" *ngIf="(control.dirty || control.touched) && control.invalid">
+  <span *ngIf="control.hasError('required')">This field is required.</span>
+  <span *ngIf="control.hasError('email') || control.errors?.message">Please enter a valid email address</span>
+</div>

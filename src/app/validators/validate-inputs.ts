@@ -5,39 +5,62 @@ interface ErrorInterface {
   message: string;
 }
 
-function validateFirstNameInput(formControl: FormControl): ErrorInterface | null {
-  return validationNameInput(formControl, 'First name may not be empty or less than 2 characters');
-}
-
-function validateLastNameInput(formControl: FormControl): ErrorInterface | null {
-  return validationNameInput(formControl, 'Last name may not be empty or less than 2 characters');
-}
-
-function validationNameInput(formControl: FormControl, message: string): ErrorInterface | null {
+function validatePasswordInput(formControl: FormControl): ErrorInterface | null {
+  let or = '';
+  let isValid = true;
   const error: ErrorInterface = {
     given: formControl.value,
-    message
+    message: 'Password must not contain value of '
   };
 
-  return (formControl.value && formControl.value.length > 1) ? null : error;
+  const firstNameValue = formControl.parent?.get('firstName')?.value;
+  const lastNameValue = formControl.parent?.get('lastName')?.value;
+
+  if (firstNameValue && firstNameValue.length > 1 && formControl.value.indexOf(firstNameValue) !== -1) {
+    error.message += 'first name';
+    or = ' or ';
+    isValid = false;
+  }
+
+  if (lastNameValue && lastNameValue.length > 1 && formControl.value.indexOf(lastNameValue) !== -1) {
+    error.message += or + 'last name';
+    isValid = false;
+  }
+
+  return isValid ? null : error;
 }
 
 function validateEmailInput(formControl: FormControl): ErrorInterface | null {
+  let isValid = true;
   const error: ErrorInterface = {
     given: formControl.value,
-    message: 'Email cannot be empty'
+    message: 'Email address is invalid'
   };
 
-  return (formControl.value && formControl.value.length > 1) ? null : error;
+  console.log(formControl.value);
+
+  if (formControl.value) {
+    const parts = formControl.value.split('@');
+    const domainName = parts.length === 2 ? parts[1] : null;
+
+    if (!domainName) {
+      isValid = false;
+    }
+
+    const domainNameParts = domainName.split('.');
+    const tld = domainNameParts.length === 2 ? domainNameParts[1] : null;
+
+    if (!tld) {
+      isValid = false;
+      return isValid ? null : error;
+    }
+
+    if (tld.length > 63) {
+      isValid = true;
+    }
+  }
+
+  return isValid ? null : error;
 }
 
-function validatePasswordInput(formControl: FormControl): ErrorInterface | null {
-  const error: ErrorInterface = {
-    given: formControl.value,
-    message: 'Password cannot be empty'
-  };
-
-  return (formControl.value && formControl.value.length > 1) ? null : error;
-}
-
-export { validateFirstNameInput, validateLastNameInput, validateEmailInput, validatePasswordInput };
+export { validatePasswordInput, validateEmailInput };

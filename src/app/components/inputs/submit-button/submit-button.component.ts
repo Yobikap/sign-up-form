@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-submit-button',
   templateUrl: './submit-button.component.html',
-  styleUrls: ['./submit-button.component.scss']
 })
-export class SubmitButtonComponent implements OnInit {
+export class SubmitButtonComponent {
+  @Input() formGroup!: FormGroup;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
