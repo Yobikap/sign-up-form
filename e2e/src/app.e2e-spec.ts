@@ -1,16 +1,16 @@
 import { browser, logging } from 'protractor';
 import { AppPage } from './app.po';
 
-describe('workspace-project App', () => {
+describe('Sign-up form e2e', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
+  it('should display the title of the form', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('form app is running!');
+    expect(await page.getTitleText()).toEqual('Sign-up form');
   });
 
   afterEach(async () => {

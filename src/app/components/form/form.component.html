@@ -1,3 +1,7 @@
+<div class="content">
+  <span>Sign-up form</span>
+</div>
+
 <form [formGroup]="signUpForm" (ngSubmit)="signUpForm.valid && onSubmit()">
     <app-first-name-input [formControlName]="'firstName'"></app-first-name-input>
     <app-last-name-input [formControlName]="'lastName'"></app-last-name-input>

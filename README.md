@@ -8,6 +8,8 @@ Before reviewing the code we have to take following into account:
 - Email address validator does not check on tld's, therefore I have added own validation for tld
 - I have not implemented 'Re-type' your email address again or password, as this was not specifically asked in the assignment.
 - ngModel has been deprecated with reactive forms see: https://angular.io/api/forms/FormControlName#use-with-ngmodel-is-deprecated
+- I have only created unit tests for happy flow. Non-happy flows are not covered.
+- E2E tests are also covered with happy flow. Non-happy flows are not covered.
 
 # For Devs
 ## Development server
