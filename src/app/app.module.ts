@@ -13,6 +13,7 @@ import { FirstNameInputComponent } from './components/inputs/first-name-input/fi
 import { LastNameInputComponent } from './components/inputs/last-name-input/last-name-input.component';
 import { ControlValueAccessorConnector } from './components/control-value-accessor-connector';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, forwardRef, Injector, OnInit } from '@angular/core';
+import { Component, forwardRef, Injector } from '@angular/core';
 import {
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
@@ -15,6 +15,7 @@ import { ControlValueAccessorConnector } from '../../control-value-accessor-conn
     }
   ]
 })
+
 export class FirstNameInputComponent extends ControlValueAccessorConnector {
   constructor(injector: Injector) {
     super(injector);

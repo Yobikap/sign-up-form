@@ -37,8 +37,6 @@ function validateEmailInput(formControl: FormControl): ErrorInterface | null {
     message: 'Email address is invalid'
   };
 
-  console.log(formControl.value);
-
   if (formControl.value) {
     const parts = formControl.value.split('@');
     const domainName = parts.length === 2 ? parts[1] : null;
