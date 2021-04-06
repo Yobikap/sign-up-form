@@ -21,6 +21,14 @@ body {
   border-radius: 20px;
 }
 
+h1 {
+  max-width: 600px;
+  margin: auto;
+  border: none;
+  padding: $margin;
+  background: none;
+}
+
 input {
   width: $input-width;
   padding: $input-padding;
